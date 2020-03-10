@@ -127,3 +127,18 @@ select {
   border: solid 1px #e5e5e5;
   border-radius: 0.25rem;
 }
+
+.top-snippet {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.btn-section a {
+  color: #ff5a5f;
+}
+
+.btn-section a:not(:last-child) {
+  margin-right: 1rem;
+}

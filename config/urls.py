@@ -24,6 +24,7 @@ urlpatterns = [
     path('snippets/new/', views.snippets_new, name='snippets-new'),
     path('snippets/<int:pk>/', views.snippet_details, name='snippet-details'),
     path('snippet/<int:pk>/edit/', views.snippets_edit, name='snippet-edit'),
+    path('snippet/<int:pk>/delete/', views.snippets_delete, name='snippets-delete'),
     path('admin/', admin.site.urls),
     path('accounts/', include('registration.backends.default.urls')),
 ]
