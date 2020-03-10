@@ -1,0 +1,11 @@
+{% extends 'base.html' %} {% block heading %} {% endblock %} {% block content %}
+<div class="void"></div>
+<div class="form-container" class="book-form">
+  <form method="POST" class="book-form">
+    <h2 class="form-title">Add Snippet.</h2>
+    {% csrf_token %} {{ form.as_p }}
+    <button type="submit" class="save btn btn-default">Save</button>
+  </form>
+</div>
+<div class="void"></div>
+{% endblock %}

@@ -39,6 +39,7 @@ main {
 
 code {
   border-radius: 0.25rem;
+  font-size: 14px;
 }
 
 .container {
@@ -52,4 +53,13 @@ code {
   padding: 1rem;
   border-radius: 0.25rem;
   position: relative;
+}
+
+p.language {
+  display: inline;
+  background: #ff5a5f;
+  color: #fff;
+  padding: 5px 7px;
+  border-radius: 0.25rem;
+  font-size: 12px;
 }

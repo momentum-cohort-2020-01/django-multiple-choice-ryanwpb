@@ -20,6 +20,7 @@ from users import views
 
 urlpatterns = [
     path('', views.snippets, name="snippet-list"),
+    path('snippets/new/', views.snippets_new, name='snippets-new'),
     path('admin/', admin.site.urls),
 ]
 
