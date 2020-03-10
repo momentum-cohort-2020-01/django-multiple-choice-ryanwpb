@@ -1,6 +1,55 @@
+/* Reset Css */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Oswald", sans-serif;
+}
+
+body {
+  letter-spacing: 1px;
+  color: #484848;
+}
+
+/* Main Page Css */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem;
+}
+
+.logo h2 {
+  font-weight: 400;
+  text-transform: capitalize;
+}
+
+.menu a {
+  color: #ff5a5f;
+  text-decoration: none;
+}
+
+.menu a:not(:last-child) {
+  margin-right: 1rem;
+}
+
+main {
+  margin: 1rem;
+}
+
+code {
+  border-radius: 0.25rem;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.snippet {
+  margin: 1rem;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+  padding: 1rem;
+  border-radius: 0.25rem;
+  position: relative;
 }
