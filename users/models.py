@@ -15,9 +15,8 @@ class Snippet(models.Model):
     description = models.TextField(max_length=200)
     code_block = models.TextField(max_length=None)
     language = models.CharField(max_length=100)
-    user = models.ForeignKey(
-        "User", on_delete=models.CASCADE, null=True, blank=True)
-    tag = models.ManyToManyField('Tag')
+    user = models.ManyToManyField('User', related_name="user")
+    tag = models.ManyToManyField('Tag', related_name="snippet_tag")
 
     def __str__(self):
 

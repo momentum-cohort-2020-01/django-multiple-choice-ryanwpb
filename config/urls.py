@@ -19,7 +19,7 @@ from django.urls import include, path
 from users import views
 
 urlpatterns = [
-    path('', views.test, name="test"),
+    path('', views.snippets, name="snippet-list"),
     path('admin/', admin.site.urls),
 ]
 

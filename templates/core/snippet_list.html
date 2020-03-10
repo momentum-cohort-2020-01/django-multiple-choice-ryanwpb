@@ -1,0 +1,8 @@
+{% extends 'base.html' %} {% block content %} {% for snippet in snippets %}
+<div class="snippet">
+  <h4 class="snippet-title" id="{{snippet.pk}}">{{snippet.title}}</h4>
+  <p class="">{{snippet.description}}</p>
+  <p class="snippet-desc">{{snippet.code_block}}</p>
+  <p>Some text here</p>
+</div>
+{% endfor %} {% endblock %}
