@@ -19,9 +19,11 @@ from django.urls import include, path
 from users import views
 
 urlpatterns = [
+    path('', include('django.contrib.auth.urls')),
     path('', views.snippets, name="snippet-list"),
     path('snippets/new/', views.snippets_new, name='snippets-new'),
     path('admin/', admin.site.urls),
+    path('accounts/', include('registration.backends.default.urls')),
 ]
 
 if settings.DEBUG:
