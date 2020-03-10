@@ -9,7 +9,7 @@ body {
   letter-spacing: 1px;
   color: #484848;
   font-family: "Oswald", sans-serif;
-  sbackground: rgb(253, 158, 45);
+  background: rgb(253, 158, 45);
   background: linear-gradient(
     77deg,
     rgba(253, 158, 45, 1) 11%,
@@ -24,6 +24,7 @@ a {
 
 /* Main Page Css */
 header {
+  background: #fff;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -33,11 +34,9 @@ header {
 .logo h2 {
   font-weight: 400;
   text-transform: capitalize;
-  color: #fff;
 }
 
 .menu a {
-  color: #fff;
   text-decoration: none;
 }
 
@@ -52,6 +51,7 @@ main {
 code {
   border-radius: 0.25rem;
   font-size: 14px;
+  display: grid;
 }
 
 .container {
@@ -63,10 +63,9 @@ code {
 .snippet {
   background: #fff;
   margin: 1rem;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
   padding: 1rem;
   border-radius: 0.25rem;
-  position: relative;
+  max-width: 441px;
 }
 
 .snippet-title {

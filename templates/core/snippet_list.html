@@ -1,5 +1,5 @@
 {% extends 'base.html' %} {% block content %} {% for snippet in snippets %}
-<a href="{% url 'snippet-details' snippet.pk %}">
+<a class="snippet-link" href="{% url 'snippet-details' snippet.pk %}">
   <div class="snippet">
     <h4 class="snippet-title" id="{{snippet.pk}}">{{snippet.title}}</h4>
     <p class="">{{snippet.description}}</p>
@@ -9,7 +9,6 @@
     </code>
     </pre>
     <p class="language">{{snippet.language}}</p>
-    <p class="">{{snippet.user}}</p>
   </div>
 </a>
 {% endfor %} {% endblock %}
