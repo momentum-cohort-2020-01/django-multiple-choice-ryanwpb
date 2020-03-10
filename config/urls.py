@@ -22,6 +22,7 @@ urlpatterns = [
     path('', include('django.contrib.auth.urls')),
     path('', views.snippets, name="snippet-list"),
     path('snippets/new/', views.snippets_new, name='snippets-new'),
+    path('snippets/<int:pk>/', views.snippet_details, name='snippet-details'),
     path('admin/', admin.site.urls),
     path('accounts/', include('registration.backends.default.urls')),
 ]

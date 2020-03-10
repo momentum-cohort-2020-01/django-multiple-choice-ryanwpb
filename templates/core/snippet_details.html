@@ -1,0 +1,16 @@
+{% extends 'base.html' %} {% block content %}
+<div class="snippet">
+  <div class="top-snippet">
+    <h4 class="snippet-title">{{book.title}}</h4>
+    <div class="btn-section"></div>
+  </div>
+  <p class="title">{{snippet.title}}</p>
+  <p class="description">{{snippet.description}}</p>
+  <pre>
+    <code>
+    {{snippet.code_block}}
+    </code>
+    </pre>
+</div>
+
+{% endblock %}

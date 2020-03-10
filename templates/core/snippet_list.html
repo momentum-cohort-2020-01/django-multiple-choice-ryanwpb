@@ -1,13 +1,15 @@
 {% extends 'base.html' %} {% block content %} {% for snippet in snippets %}
-<div class="snippet">
-  <h4 class="snippet-title" id="{{snippet.pk}}">{{snippet.title}}</h4>
-  <p class="">{{snippet.description}}</p>
-  <pre>
-  <code>
-  {{snippet.code_block}}
-   </code>
-  </pre>
-  <p class="language">{{snippet.language}}</p>
-  <p class="">{{snippet.user}}</p>
-</div>
+<a href="{% url 'snippet-details' snippet.pk %}">
+  <div class="snippet">
+    <h4 class="snippet-title" id="{{snippet.pk}}">{{snippet.title}}</h4>
+    <p class="">{{snippet.description}}</p>
+    <pre>
+    <code>
+    {{snippet.code_block}}
+    </code>
+    </pre>
+    <p class="language">{{snippet.language}}</p>
+    <p class="">{{snippet.user}}</p>
+  </div>
+</a>
 {% endfor %} {% endblock %}

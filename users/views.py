@@ -1,5 +1,5 @@
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, JsonResponse
 from .forms import SnippetForm
@@ -24,3 +24,8 @@ def snippets_new(request):
     else:
         form = SnippetForm()
     return render(request, 'core/snippets_edit.html', {'form': form})
+
+
+def snippet_details(request, pk):
+    snippet = get_object_or_404(Snippet, pk=pk)
+    return render(request, "core/snippet_details.html", {'snippet': snippet, 'pk': pk})
