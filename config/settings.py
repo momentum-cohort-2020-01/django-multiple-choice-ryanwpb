@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'config',
 
     # Third-party
@@ -53,6 +54,7 @@ INSTALLED_APPS = [
 
     # Project-specific
     'users',
+    'snippets',
 ]
 
 MIDDLEWARE = [

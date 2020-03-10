@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.conf import settings
 from django.urls import include, path
-from users import views
+from snippets import views
 
 urlpatterns = [
     path('', include('django.contrib.auth.urls')),
