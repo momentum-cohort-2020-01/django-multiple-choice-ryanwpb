@@ -23,6 +23,7 @@ urlpatterns = [
     path('', views.snippets, name="snippet-list"),
     path('snippets/new/', views.snippets_new, name='snippets-new'),
     path('snippets/<int:pk>/', views.snippet_details, name='snippet-details'),
+    path('snippet/<int:pk>/edit/', views.snippets_edit, name='snippet-edit'),
     path('admin/', admin.site.urls),
     path('accounts/', include('registration.backends.default.urls')),
 ]

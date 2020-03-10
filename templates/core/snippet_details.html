@@ -2,7 +2,9 @@
 <div class="snippet">
   <div class="top-snippet">
     <h4 class="snippet-title">{{book.title}}</h4>
-    <div class="btn-section"></div>
+    <div class="btn-section">
+      <a class="btn btn-edit" href="{% url 'snippet-edit' pk %}">Edit</a>
+    </div>
   </div>
   <p class="title">{{snippet.title}}</p>
   <p class="description">{{snippet.description}}</p>
