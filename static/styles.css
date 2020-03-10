@@ -3,13 +3,13 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Oswald", sans-serif;
 }
 
 body {
   letter-spacing: 1px;
   color: #484848;
-  background: rgb(253, 158, 45);
+  font-family: "Oswald", sans-serif;
+  sbackground: rgb(253, 158, 45);
   background: linear-gradient(
     77deg,
     rgba(253, 158, 45, 1) 11%,
