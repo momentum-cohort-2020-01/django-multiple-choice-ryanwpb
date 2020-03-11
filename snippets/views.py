@@ -4,13 +4,41 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, JsonResponse
 from django.utils.text import slugify
 from .forms import SnippetForm
-
 from .models import Snippet, Tag, User
+from django.db.models import Q
 
 
 @login_required
 def snippets(request):
-    snippets = Snippet.objects.all()
+    def create_sql_query(query_string):
+        """
+        Splits the string coming in from the front-end into separate words
+        and creates a SQL query that will look for any of those words in the 
+        title or tags of a snippet.
+        """
+        query_terms = query_string.split(" ")
+        sql_query = Q()
+        for term in query_terms:
+            sql_query = sql_query | Q(
+                tags__name__icontains=term) | Q(title__icontains=term)
+        return sql_query
+
+    context = {}
+    # Will either be the query string or it will be None
+    query = request.GET.get('q')
+    if query:
+        snippets = Snippet.objects.filter(create_sql_query(query))
+    else:
+        snippets = Snippet.objects.all()
+        # query_words = query.split(" ")
+
+    # for q in queries:
+    #     Snippet.objects.filter(
+    #         Q(tags__name__icontains=q) |
+    #         Q(title__icontains=q)
+    #     ).distinct()
+
+    context['query'] = str(query)
     return render(request, 'core/snippet_list.html', {'snippets': snippets})
 
 

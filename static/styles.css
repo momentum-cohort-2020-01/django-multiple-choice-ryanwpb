@@ -36,6 +36,12 @@ header {
   text-transform: capitalize;
 }
 
+.menu {
+  display: flex;
+  align-items: center;
+  width: 45%;
+}
+
 .menu a {
   text-decoration: none;
 }
@@ -102,6 +108,8 @@ textarea {
   font-weight: 400;
   border-radius: 0.25rem;
   color: #484848;
+  font-family: "Oswald";
+  letter-spacing: 1px;
 }
 
 textarea {
@@ -139,5 +147,12 @@ select {
 }
 
 .btn-section a:not(:last-child) {
+  margin-right: 1rem;
+}
+
+.seach-bar {
+  max-width: 400px;
+  width: 100%;
+  font-family: "Oswald", sans-serif;
   margin-right: 1rem;
 }

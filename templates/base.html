@@ -25,6 +25,17 @@
         {% endblock %}
       </div>
       <div class="menu">
+        <div class="seach-bar">
+          <form action="" method="GET" id="search-form">
+            <input
+              type="text"
+              id="search"
+              name="q"
+              placeholder="Search..."
+              value="{{query}}"
+            />
+          </form>
+        </div>
         <a class="menu-link" href="{% url 'snippet-list' %}">Home</a>
         <a class="menu-link" href="{% url 'snippets-new' %}">Add Snippet</a>
         <a class="menu-link" href="/accounts/logout">Logout</a>
