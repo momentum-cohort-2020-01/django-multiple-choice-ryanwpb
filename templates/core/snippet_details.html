@@ -13,7 +13,9 @@
   {{snippet.code_block}}
   </code>
   </pre>
-  <p class="tag">{{snippet.tags}}</p>
+  {% for tag in snippet.tags.all %}
+  <p class="tag">{{tag}}</p>
+  {% endfor %}
 </div>
 
 {% endblock %}
