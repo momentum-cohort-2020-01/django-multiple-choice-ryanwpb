@@ -22,7 +22,6 @@ def snippets(request):
                 tags__name__icontains=term) | Q(title__icontains=term)
         return sql_query
 
-    context = {}
     # Will either be the query string or it will be None
     query = request.GET.get('q')
     if query:
@@ -37,8 +36,9 @@ def snippets(request):
     #         Q(title__icontains=q)
     #     ).distinct()
 
+    context = {'snippets': snippets}
     context['query'] = str(query)
-    return render(request, 'core/snippet_list.html', {'snippets': snippets})
+    return render(request, 'core/snippet_list.html', context=context)
 
 
 def snippets_new(request):

@@ -164,6 +164,7 @@ h4.warning {
   font-size: 21px;
   font-weight: 400;
   color: #ff5a5f;
+  text-align: center;
 }
 
 form#search-form {

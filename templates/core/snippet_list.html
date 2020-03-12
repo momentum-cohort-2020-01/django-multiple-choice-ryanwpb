@@ -1,4 +1,6 @@
-{% extends 'base.html' %} {% block content %} {% for snippet in snippets %}
+{% extends 'base.html' %} {% block content %} {% if snippets %}
+<!--  -->
+{% for snippet in snippets %}
 <a class="snippet-link" href="{% url 'snippet-details' snippet.pk %}">
   <div class="snippet">
     <h4 class="snippet-title" id="{{snippet.pk}}">{{snippet.title}}</h4>
@@ -13,4 +15,11 @@
     {% endfor %}
   </div>
 </a>
-{% endfor %} {% endblock %}
+{% endfor %} {% else %}
+<div class="void"></div>
+<h4 class="warning">
+  Sorry, nothing matches your search for: {{query}}
+</h4>
+<div class="void"></div>
+
+{% endif %} {% endblock %}
