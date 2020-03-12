@@ -8,11 +8,9 @@
     {{snippet.code_block}}
     </code>
     </pre>
-    <p class="language">{{snippet.language}}</p>
     {% for tag in snippet.tags.all %}
     <p class="tag">{{tag}}</p>
     {% endfor %}
   </div>
 </a>
-
 {% endfor %} {% endblock %}

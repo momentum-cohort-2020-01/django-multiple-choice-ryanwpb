@@ -28,7 +28,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 2rem;
+  padding: 1rem;
 }
 
 .logo h2 {
@@ -39,7 +39,7 @@ header {
 .menu {
   display: flex;
   align-items: center;
-  width: 45%;
+  width: 37%;
 }
 
 .menu a {
@@ -79,7 +79,7 @@ code {
   font-size: 20px;
 }
 
-p.language {
+p.tag {
   display: inline;
   background: #ff5a5f;
   color: #fff;
@@ -151,8 +151,37 @@ select {
 }
 
 .seach-bar {
-  max-width: 400px;
+  max-width: 300px;
   width: 100%;
   font-family: "Oswald", sans-serif;
   margin-right: 1rem;
+}
+
+h4.warning {
+  padding: 1rem;
+  background: #fff;
+  border-radius: 0.25rem;
+  font-size: 21px;
+  font-weight: 400;
+  color: #ff5a5f;
+}
+
+form#search-form {
+  position: relative;
+}
+
+button#search-btn {
+  position: absolute;
+  right: 10px;
+  top: 25%;
+  border: none;
+  font-size: 17px;
+  color: #ccc;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+button#search-btn:hover {
+  color: #484848;
 }
