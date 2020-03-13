@@ -1,4 +1,4 @@
-{% extends 'base.html' %} {% block new %}
+{% extends 'base.html' %} {% block content %}
 
 <form method="POST" action="" class="book-form">
   {% csrf_token %} {{ form.as_p }}
