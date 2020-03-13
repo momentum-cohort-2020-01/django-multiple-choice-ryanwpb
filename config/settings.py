@@ -148,6 +148,7 @@ STATICFILES_DIRS = [
 
 AUTH_USER_MODEL = 'users.User'
 ACCOUNT_ACTIVATION_DAYS = 7
+LOGIN_REDIRECT_URL = '/'
 # Debug toolbar config
 
 INTERNAL_IPS = [
