@@ -11,3 +11,9 @@ document.querySelector("code").addEventListener("click", async event => {
     console.error("Failed to copy!", err);
   }
 });
+
+let loginLink = document.querySelector("#login");
+if (/logout/.test(window.location.href)) {
+  loginLink.innerHTML = "Login";
+  loginLink.setAttribute("href", "/accounts/login");
+}

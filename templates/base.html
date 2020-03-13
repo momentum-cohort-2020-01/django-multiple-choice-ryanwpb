@@ -39,12 +39,16 @@
         </div>
         <a class="menu-link" href="{% url 'snippet-list' %}">Home</a>
         <a class="menu-link" href="{% url 'snippets-new' %}">Add Snippet</a>
-        <a class="menu-link" href="/accounts/logout">Logout</a>
+        <a class="menu-link" id="login" href="/accounts/logout">Logout</a>
       </div>
     </header>
     <div class="container">
       {% block content %} {% endblock %}
     </div>
+    <div class="login-block">
+      {% block new %} {% endblock %}
+    </div>
+
     <script>
       hljs.initHighlightingOnLoad();
     </script>

@@ -1,6 +1,5 @@
-{% extends 'base.html' %} {% block greeting %}
-<h2>Login</h2>
-{% endblock %} {% block login %}
+{% extends 'base.html' %} {% block new %}
+
 <form method="POST" action="" class="book-form">
   {% csrf_token %} {{ form.as_p }}
   <button type="submit" class="save btn btn-default">Login</button>
