@@ -28,14 +28,6 @@ def snippets(request):
         snippets = Snippet.objects.filter(create_sql_query(query))
     else:
         snippets = Snippet.objects.all()
-        # query_words = query.split(" ")
-
-    # for q in queries:
-    #     Snippet.objects.filter(
-    #         Q(tags__name__icontains=q) |
-    #         Q(title__icontains=q)
-    #     ).distinct()
-
     context = {'snippets': snippets}
     context['query'] = str(query)
     return render(request, 'core/snippet_list.html', context=context)
