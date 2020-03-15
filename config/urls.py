@@ -28,6 +28,7 @@ urlpatterns = [
     path('snippet/<int:pk>/delete/', views.snippets_delete, name='snippets-delete'),
     path('admin/', admin.site.urls),
     path('accounts/', include('registration.backends.default.urls')),
+    path('search/', views.search, name="search")
 ]
 
 if settings.DEBUG:

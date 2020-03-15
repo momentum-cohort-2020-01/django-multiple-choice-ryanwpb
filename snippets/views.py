@@ -9,27 +9,29 @@ from django.db.models import Q
 
 @login_required
 def snippets(request):
-    def create_sql_query(query_string):
-        """
-        Splits the string coming in from the front-end into separate words
-        and creates a SQL query that will look for any of those words in the 
-        title or tags of a snippet.
-        """
-        query_terms = query_string.split(" ")
-        sql_query = Q()
-        for term in query_terms:
-            sql_query = sql_query | Q(
-                tags__name__icontains=term) | Q(title__icontains=term)
-        return sql_query
+    # def create_sql_query(query_string):
+    #     """
+    #     Splits the string coming in from the front-end into separate words
+    #     and creates a SQL query that will look for any of those words in the
+    #     title or tags of a snippet.
+    #     """
+    #     query_terms = query_string.split(" ")
+    #     sql_query = Q()
+    #     for term in query_terms:
+    #         sql_query = sql_query | Q(
+    #             tags__name__icontains=term) | Q(title__icontains=term)
+    #     return sql_query
 
-    # Will either be the query string or it will be None
-    query = request.GET.get('q')
-    if query:
-        snippets = Snippet.objects.filter(create_sql_query(query))
-    else:
-        snippets = Snippet.objects.all()
+    # # Will either be the query string or it will be None
+    # query = request.GET.get('q')
+    # if query:
+    #     snippets = Snippet.objects.filter(create_sql_query(query))
+    # else:
+    #     snippets = Snippet.objects.all()
+    # context = {'snippets': snippets}
+    # context['query'] = str(query)
+    snippets = Snippet.objects.all()
     context = {'snippets': snippets}
-    context['query'] = str(query)
     return render(request, 'core/snippet_list.html', context=context)
 
 
@@ -38,7 +40,7 @@ def snippets_new(request):
         form = SnippetForm(request.POST)
         if form.is_valid():
             snippet = form.save(commit=False)
-            snippet.author = request.user
+            snippet.user = request.user
             snippet.save()
             form.save_m2m()
             return redirect('snippet-list')
@@ -70,3 +72,46 @@ def snippets_delete(request, pk):
     snippet = get_object_or_404(Snippet, pk=pk)
     snippet.delete()
     return redirect('snippet-list')
+
+
+def search(request):
+
+    def create_sql_query(query_string):
+        """
+        Splits the string coming in from the front-end into separate words
+        and creates a SQL query that will look for any of those words in the 
+        title or tags of a snippet.
+        """
+        query_terms = query_string.split(" ")
+        sql_query = Q()
+        for term in query_terms:
+            sql_query = sql_query | Q(
+                tags__name__icontains=term) | Q(title__icontains=term)
+        return sql_query
+
+    # Will either be the query string or it will be None
+    query = request.GET.get('q')
+    if query:
+        snippets = Snippet.objects.filter(create_sql_query(query))
+    else:
+        snippets = Snippet.objects.all()
+    context = {'snippets': snippets}
+    context['query'] = str(query)
+    print(readySnippet(snippets))
+    return JsonResponse({
+        "status": "ok",
+        "results": readySnippet(snippets),
+    })
+
+
+def readySnippet(snippets):
+    results = {}
+    for snippet in snippets:
+        results[snippet.pk] = {
+            "title": snippet.title,
+            "description": snippet.description,
+            "code_block": snippet.code_block,
+            "language": snippet.language,
+            "tags": snippet.tags.name,
+        }
+    return results
