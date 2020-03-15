@@ -25,22 +25,24 @@ searchForm.addEventListener("submit", function(e) {
     })
     .then(data => {
       document.querySelector(".container").innerHTML = "";
-
+      console.log(data.results);
       for (const [id, snippet] of Object.entries(data.results)) {
-        snippetHtml = `<a class="snippet-link" href="/snippets/${id}">
+        console.log(snippet);
+        let snippetHtml = `<a class="snippet-link" href="/snippets/${id}">
         <div class="snippet">
           <h4 class="snippet-title" id="${id}">${snippet.title}</h4>
           <p class="">${snippet.description}</p>
-          <pre>
-          <code>
-          ${snippet.code_block}
-          </code>
-          </pre>
+<pre>
+<code id="snip${id}">
+</code>
+</pre>
         </div>
       </a>`;
         document.querySelector(".container").innerHTML += snippetHtml;
+        document.querySelector(`#snip${id}`).textContent = snippet.code_block;
       }
-      reloadHighlight();
+      // reloadHighlight();
+      hljs.highlightBlock(document.querySelector(`#snip${id}`));
     });
 });
 

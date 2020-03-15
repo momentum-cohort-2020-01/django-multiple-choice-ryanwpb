@@ -9,10 +9,10 @@
   </div>
   <p class="description">{{snippet.description}}</p>
   <pre>
-  <code>
-  {{snippet.code_block}}
-  </code>
-  </pre>
+<code id="snip{{snippet.pk}}">
+{{snippet.code_block}}
+</code>
+</pre>
   {% for tag in snippet.tags.all %}
   <p class="tag">{{tag}}</p>
   {% endfor %}
