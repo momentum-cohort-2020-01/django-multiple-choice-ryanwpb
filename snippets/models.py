@@ -14,7 +14,7 @@ class Snippet(models.Model):
 
     def __str__(self):
 
-        return f"Snippet title {self.title} Description {self.description} code block {self.code_block} language {self.language} tag {self.tags}"
+        return f"Snippet title {self.title} Description {self.description} code block {self.code_block} language {self.language} tag {self.tags} user {self.user}"
 
 
 class Tag(models.Model):

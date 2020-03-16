@@ -18,7 +18,6 @@ let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", function(e) {
   e.preventDefault();
   let searchTerm = document.querySelector("#search").value;
-  console.log(searchTerm);
   fetch(`/search/?q=${searchTerm}`)
     .then(response => {
       return response.json();
@@ -27,7 +26,6 @@ searchForm.addEventListener("submit", function(e) {
       document.querySelector(".container").innerHTML = "";
       console.log(data.results);
       for (const [id, snippet] of Object.entries(data.results)) {
-        console.log(snippet);
         let snippetHtml = `<a class="snippet-link" href="/snippets/${id}">
         <div class="snippet">
           <h4 class="snippet-title" id="${id}">${snippet.title}</h4>

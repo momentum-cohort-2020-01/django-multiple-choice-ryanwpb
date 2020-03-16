@@ -40,7 +40,7 @@ def snippets_new(request):
         form = SnippetForm(request.POST)
         if form.is_valid():
             snippet = form.save(commit=False)
-            snippet.user = request.user
+            # snippet.user = request.user
             snippet.save()
             form.save_m2m()
             return redirect('snippet-list')
