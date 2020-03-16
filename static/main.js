@@ -42,7 +42,9 @@ searchForm.addEventListener("submit", function(e) {
         document.querySelector(`#snip${id}`).textContent = snippet.code_block;
       }
       // reloadHighlight();
-      hljs.highlightBlock(document.querySelector(`#snip${id}`));
+      document.querySelectorAll("pre > code").forEach(function(el) {
+        hljs.highlightBlock(el);
+      });
     });
 });
 
